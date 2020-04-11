@@ -14,7 +14,10 @@ namespace IdentityServer
             new List<IdentityResource>
             { 
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResources.Email(),
+                new IdentityResources.Address(),
+                new IdentityResources.Phone()
             };
 
         public static IEnumerable<ApiResource> Apis =>
@@ -42,7 +45,7 @@ namespace IdentityServer
                 {
                     ClientId = "mvc",
                     ClientSecrets = { new Secret("mvcSecret".Sha512()) },
-                    AllowedGrantTypes = GrantTypes.Code,
+                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
                     RequireConsent = false,
                     RequirePkce = true,
                     // where to redirect to after login
@@ -54,7 +57,10 @@ namespace IdentityServer
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        IdentityServerConstants.StandardScopes.Address,
+                        IdentityServerConstants.StandardScopes.Phone
                     }
                 }
             };
