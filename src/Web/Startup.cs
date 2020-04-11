@@ -36,6 +36,8 @@ namespace Web
                     options.ClientSecret = "mvcSecret";
                     options.ResponseType = "code";
                     options.SaveTokens = true;
+                    options.Scope.Add("testApi");
+                    options.Scope.Add("offline_access");
                 });
         }
 

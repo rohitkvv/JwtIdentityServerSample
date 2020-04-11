@@ -60,8 +60,11 @@ namespace IdentityServer
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Address,
-                        IdentityServerConstants.StandardScopes.Phone
-                    }
+                        IdentityServerConstants.StandardScopes.Phone,
+                        "testApi"
+                    },
+
+                    AllowOfflineAccess = true
                 }
             };
         
