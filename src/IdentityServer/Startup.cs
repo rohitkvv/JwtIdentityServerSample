@@ -40,7 +40,7 @@ namespace IdentityServer
                     options.Authority = "https://demo.identityserver.io/";
                     options.ClientId = "native.code";
                     options.ClientSecret = "secret";
-                    options.ResponseType = "code";
+                    options.ResponseType = "CodeAndClientCredentials";
 
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
