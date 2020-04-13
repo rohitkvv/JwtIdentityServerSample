@@ -36,6 +36,13 @@ namespace Web
                     options.ClientSecret = "mvcSecret";
                     options.ResponseType = "code";
                     options.SaveTokens = true;
+
+                    // To retreive the claims from identity server, enable the below property. 
+                    options.GetClaimsFromUserInfoEndpoint = true;
+
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
+                    options.Scope.Add("email");
                     options.Scope.Add("testApi");
                     options.Scope.Add("offline_access");
                 });

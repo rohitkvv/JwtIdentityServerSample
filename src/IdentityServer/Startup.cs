@@ -30,6 +30,9 @@ namespace IdentityServer
                     options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
                     options.ClientId = "74043089457-cps7utk376jm5akpjeejnsdm9ht5brnf.apps.googleusercontent.com";
                     options.ClientSecret = "Wg6LVm6AnH_WSmj_Lt0Ll6LZ";
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
+                    options.Scope.Add("email");
                 })
                 .AddOpenIdConnect("oidc", "Demo IdentityServer", options =>
                 {
@@ -40,7 +43,7 @@ namespace IdentityServer
                     options.Authority = "https://demo.identityserver.io/";
                     options.ClientId = "native.code";
                     options.ClientSecret = "secret";
-                    options.ResponseType = "CodeAndClientCredentials";
+                    options.ResponseType = "code";
 
                     options.TokenValidationParameters = new TokenValidationParameters
                     {

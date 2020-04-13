@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +44,19 @@ namespace Web.Controllers
 
             ViewBag.Json = JArray.Parse(content).ToString();
             return View("json");
+        }
+
+        public IActionResult Profile()
+        {
+            var name = User.FindFirst(c => c.Type.Equals("name"))?.Value;
+
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                ViewBag.Name = "Welcome " + name;
+                return View("profile");
+            }
+
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

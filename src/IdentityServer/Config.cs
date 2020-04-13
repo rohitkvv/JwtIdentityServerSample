@@ -45,7 +45,7 @@ namespace IdentityServer
                 {
                     ClientId = "mvc",
                     ClientSecrets = { new Secret("mvcSecret".Sha512()) },
-                    AllowedGrantTypes = GrantTypes.CodeAndClientCredentials,
+                    AllowedGrantTypes = GrantTypes.Code,
                     RequireConsent = false,
                     RequirePkce = true,
                     // where to redirect to after login
@@ -59,8 +59,6 @@ namespace IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Email,
-                        IdentityServerConstants.StandardScopes.Address,
-                        IdentityServerConstants.StandardScopes.Phone,
                         "testApi"
                     },
 
